@@ -2,41 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>nateknowsball.com</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nateknowsball — sports takes and film analysis</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
-<body>
+<body onload="initIndex()">
   <header class="site-header">
-    <h1>nateknowsball</h1>
-    <p>sports analysis, film breakdowns, and unapologetic takes</p>
+    <div class="top-bar">
+      <div class="brand">
+        <span class="logo">N</span>
+        <div>
+          <h1>nateknowsball</h1>
+          <p>sports takes, film breakdowns, and tomorrow’s winners</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#featured">Featured</a>
+        <a href="#categories">Topics</a>
+        <a href="#about">About</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Your sports edge starts here</p>
+        <h2>Film-backed takes for the fans who want more than highlights.</h2>
+        <p>From game-changing plays to matchup mechanics, nateknowsball breaks down what the numbers miss and what the tape proves.</p>
+        <div class="hero-actions">
+          <a class="button" href="#featured">Read Latest</a>
+          <a class="button button-secondary" href="#newsletter">Join the Newsletter</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="hero-tag">Trending</p>
+        <h3>How the late-game defense finally cost the West favorite</h3>
+        <p>Deep dive into rotations, spacing, and the one lineup that never should have stayed on the floor.</p>
+      </div>
+    </section>
   </header>
 
-  <main class="container">
+  <main class="container layout-grid">
+    <div class="main-column">
+      <section class="search-panel">
+        <div class="search-box">
+          <label for="post-search">Search articles</label>
+          <div class="search-field">
+            <input id="post-search" type="search" placeholder="Search NBA, NFL, LeBron, analysis..." />
+            <button type="button" class="button button-secondary" onclick="renderDynamicPosts()">Search</button>
+          </div>
+          <p class="search-copy">Search by title, category, tags, or the latest take.</p>
+        </div>
+        <div class="search-filters">
+          <button type="button" class="filter-chip" onclick="applySearchFilter('NBA')">NBA</button>
+          <button type="button" class="filter-chip" onclick="applySearchFilter('NFL')">NFL</button>
+          <button type="button" class="filter-chip" onclick="applySearchFilter('Soccer')">Soccer</button>
+          <button type="button" class="filter-chip" onclick="applySearchFilter('Analysis')">Analysis</button>
+          <button type="button" class="filter-chip" onclick="applySearchFilter('Opinion')">Opinion</button>
+          <button type="button" class="filter-chip" onclick="applySearchFilter('LeBron')">LeBron</button>
+          <button type="button" class="filter-chip" onclick="applySearchFilter('Curry')">Curry</button>
+        </div>
+      </section>
 
-    <section class="featured">
-      <h2>Latest Posts</h2>
+      <section id="featured" class="featured">
+        <div class="section-heading">
+          <h2>Latest Posts</h2>
+          <p>Fresh takes and breakdowns from the weekend’s biggest contests.</p>
+        </div>
+        <div id="post-list" class="post-grid"></div>
+      </section>
 
-      <article class="post-card">
-        <h3><a href="post.html">Why This Team’s Defense Fell Apart in 4th Quarter</a></h3>
-        <p>Breaking down rotations, mismatches, and the one possession that changed everything.</p>
-        <span class="tag">NBA</span>
-      </article>
+      <section id="categories" class="categories">
+        <div class="section-heading">
+          <h2>Featured Topics</h2>
+          <p>Quick-access categories for film study, roster moves, and matchup previews.</p>
+        </div>
+        <div class="cards-row">
+          <div class="topic-card">
+            <h3>Film Breakdown</h3>
+            <p>Play-by-play tape analysis that separates good instincts from lucky plays.</p>
+          </div>
+          <div class="topic-card">
+            <h3>Player Focus</h3>
+            <p>Deep dives on star performance, offseason moves, and breakout candidates.</p>
+          </div>
+          <div class="topic-card">
+            <h3>Game Plan</h3>
+            <p>Matchup previews, betting edges, and the hidden story behind the score.</p>
+          </div>
+        </div>
+      </section>
 
-      <article class="post-card">
-        <h3><a href="post.html">Player X Isn’t Clutch — Here’s the Film</a></h3>
-        <p>Not vibes. Not narratives. Just what actually happens under pressure.</p>
-        <span class="tag">Analysis</span>
-      </article>
+      <section id="newsletter" class="newsletter">
+        <div>
+          <h2>Get the take before your feed does</h2>
+          <p>Weekly film notes, sharp analysis, and the best free picks for the weekend.</p>
+        </div>
+        <form>
+          <input type="email" placeholder="Your email address" aria-label="Email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
 
-    </section>
+      <section id="about" class="about">
+        <div class="about-text">
+          <h2>About nateknowsball</h2>
+          <p>Built for the fan who cares about what really happened on the field, court, or ice. Nate drops film-driven breakdowns, sharp opinion, and the context the headlines leave out.</p>
+        </div>
+        <div class="about-stats">
+          <div>
+            <strong>120+</strong>
+            <span>games analyzed</span>
+          </div>
+          <div>
+            <strong>45%</strong>
+            <span>higher engagement on take threads</span>
+          </div>
+          <div>
+            <strong>3x</strong>
+            <span>more film time than typical recaps</span>
+          </div>
+        </div>
+      </section>
+    </div>
 
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h3>Search tips</h3>
+        <p>Type a team, player, or category and hit search. The latest posts always appear first.</p>
+      </div>
+      <div class="sidebar-card">
+        <h3>Popular posts</h3>
+        <ul id="sidebar-popular" class="sidebar-list"></ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>Recent posts</h3>
+        <ul id="sidebar-recent" class="sidebar-list"></ul>
+      </div>
+      <div class="sidebar-card subscribe-card">
+        <h3>Weekly breakdowns</h3>
+        <p>Get tight film notes, takeaways, and edge-of-the-game analysis sent once a week.</p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Email address" aria-label="Email address" />
+          <button class="button" type="button">Subscribe</button>
+        </form>
+      </div>
+    </aside>
   </main>
 
-  <footer>
-    <p>© 2026 nateknowsball.com — all takes subject to rewatching the tape</p>
+  <footer class="site-footer">
+    <p>© 2026 nateknowsball.com — all takes subject to rewatching the tape.</p>
   </footer>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
