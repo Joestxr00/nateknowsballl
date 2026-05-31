@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post — nateknowsball</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body onload="initPost()">
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="brand">
+        <span class="logo">N</span>
+        <div>
+          <h1>nateknowsball</h1>
+          <p>sports takes, film breakdowns, and tomorrow’s winners</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container layout-grid">
+    <article class="post-article">
+      <section class="post-header">
+        <span id="post-category" class="tag">NBA</span>
+        <h1 id="post-title">Post title goes here</h1>
+        <div class="post-meta">
+          <span id="post-author">By Nate</span>
+          <span id="post-date">• May 31, 2026</span>
+        </div>
+        <div class="share-row">
+          <button type="button" class="button button-secondary" onclick="sharePost()">Share</button>
+          <div class="share-links">
+            <a href="#" id="share-twitter">Twitter</a>
+            <a href="#" id="share-facebook">Facebook</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-image-card">
+        <img id="post-image" alt="Featured image" />
+      </section>
+
+      <section id="post-content" class="post-content">
+        <p>Loading article…</p>
+      </section>
+
+      <section class="related-posts">
+        <h2>Related posts</h2>
+        <div id="related-list" class="cards-row"></div>
+      </section>
+
+      <section class="comments-section">
+        <div class="comments-header">
+          <h2>Comments</h2>
+          <p>Comments are moderated. Keep it respectful and on the game tape.</p>
+        </div>
+        <div id="comments-list" class="comments-list"></div>
+        <form id="comment-form" class="comment-form" onsubmit="submitComment(event)">
+          <label>
+            Name
+            <input id="comment-name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            Comment
+            <textarea id="comment-text" rows="4" placeholder="Share your take" required></textarea>
+          </label>
+          <button type="submit" class="button">Post comment</button>
+        </form>
+      </section>
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h3>Popular posts</h3>
+        <ul id="popular-posts"></ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>Recent posts</h3>
+        <ul id="recent-posts"></ul>
+      </div>
+      <div class="sidebar-card subscribe-card">
+        <h3>Weekly breakdowns</h3>
+        <p>Get edge-of-the-seat film notes in your inbox, once a week.</p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Email address" aria-label="Email address" />
+          <button class="button" type="button">Subscribe</button>
+        </form>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 nateknowsball.com — all takes subject to rewatching the tape.</p>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
