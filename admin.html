@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nateknowsball Admin — nateknowsball</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body onload="initAdmin()">
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="brand">
+        <span class="logo">N</span>
+        <div>
+          <h1>nateknowsball</h1>
+          <p>admin dashboard</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="admin-hero">
+      <h2>Private publishing panel</h2>
+      <p>Only you can add new posts, attach images, and manage what appears on the main page.</p>
+    </section>
+
+    <section class="admin-panel">
+      <div class="admin-card">
+        <h3>Admin login</h3>
+        <p>Enter your secret password to unlock the post editor.</p>
+        <div class="form-row">
+          <input id="admin-password" type="password" placeholder="Password" aria-label="Admin password" />
+          <button type="button" onclick="authenticateAdmin()">Unlock editor</button>
+        </div>
+        <p class="note">This is a prototype admin gate for local use only. It is not secure on a public server.</p>
+      </div>
+
+      <div id="admin-area" class="admin-card hidden">
+        <div class="admin-area-top">
+          <h3>Create new article</h3>
+          <button type="button" class="button button-secondary" onclick="logoutAdmin()">Log out</button>
+        </div>
+        <form id="admin-form" onsubmit="saveNewPost(event)">
+          <div class="form-row">
+            <input id="post-title" type="text" placeholder="Article title" required />
+            <input id="post-category" type="text" placeholder="Category (e.g. NBA, NFL, Analysis)" required />
+          </div>
+
+          <div class="form-row">
+            <input id="post-tags" type="text" placeholder="Tags (comma separated, e.g. LeBron, Curry)" />
+          </div>
+
+          <div class="form-row">
+            <input id="post-excerpt" type="text" placeholder="Short excerpt" required />
+          </div>
+
+          <div class="form-row">
+            <input id="post-image" type="file" accept="image/*" onchange="handleImagePreview(event)" />
+          </div>
+
+          <div class="form-row">
+            <input id="post-image-alt" type="text" placeholder="Image alt text" />
+          </div>
+
+          <div class="form-row">
+            <textarea id="post-content" rows="6" placeholder="Article content or summary" required></textarea>
+          </div>
+
+          <div class="form-row admin-form-actions">
+            <button type="submit" class="button">Publish article</button>
+            <button type="button" class="button button-secondary" onclick="clearPreview()">Clear image</button>
+          </div>
+
+          <p id="status-message" class="status-message"></p>
+        </form>
+
+        <div class="image-preview-card hidden" id="image-preview-card">
+          <p class="eyebrow">Image preview</p>
+          <img id="image-preview" alt="Preview" />
+        </div>
+      </div>
+
+      <div id="published-posts" class="admin-card hidden">
+        <h3>Published posts</h3>
+        <div id="published-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
