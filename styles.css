@@ -27,6 +27,21 @@ a {
   text-decoration: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
 img {
   max-width: 100%;
 }
@@ -113,6 +128,229 @@ nav a {
 
 nav a:hover {
   opacity: 1;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+  background: rgba(2, 7, 17, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.primary-nav {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link,
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  color: #dce4ff;
+  background: transparent;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.nav-link:hover,
+.nav-toggle:hover,
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.has-dropdown .nav-toggle {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 16rem;
+  margin-top: 0.6rem;
+  padding: 0.6rem 0;
+  background: rgba(2, 7, 17, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  box-shadow: 0 22px 70px rgba(1, 8, 25, 0.22);
+}
+
+.nav-item.open .dropdown-menu,
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: #dce4ff;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 18rem;
+  max-width: 24rem;
+}
+
+.search-input-group {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.2rem;
+}
+
+.search-form input {
+  width: 100%;
+  border-radius: 999px 0 0 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f4f4f8;
+  padding: 0.95rem 1rem;
+}
+
+.search-form input:focus {
+  outline: 2px solid rgba(25, 166, 255, 0.45);
+  outline-offset: 2px;
+}
+
+.button-search {
+  border-radius: 0 999px 999px 0;
+  padding: 0 1.35rem;
+}
+
+.search-suggestions {
+  display: grid;
+  gap: 0.2rem;
+  max-height: 18rem;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1rem;
+  padding: 0.6rem 0;
+}
+
+.search-suggestions.hidden {
+  display: none;
+}
+
+.search-suggestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.95rem;
+  color: #f4f4f8;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.search-suggestion:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.secondary-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.85rem 0 1rem;
+  margin: 0 auto;
+  width: min(1120px, calc(100% - 2rem));
+}
+
+.secondary-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  color: #a8b4d0;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.secondary-nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  color: #a8b4d0;
+  font-size: 0.95rem;
+  margin: 1.5rem 0 0;
+}
+
+.breadcrumbs a {
+  color: #dce4ff;
+}
+
+.breadcrumbs span {
+  opacity: 0.65;
 }
 
 .hero {
